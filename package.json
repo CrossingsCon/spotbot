@@ -1,0 +1,16 @@
+{
+  "name": "spotbot",
+  "version": "1.0.0",
+  "description": "A Bot for the Crossings Slack",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Eli Morris-Heft (https://github.com/dispatchrabbi/)",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@slack/bolt": "^2.3.0",
+    "dotenv-safe": "^8.2.0"
+  }
+}
