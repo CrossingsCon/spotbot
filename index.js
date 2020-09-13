@@ -4,7 +4,7 @@ dotenv.config();
 import bolt from '@slack/bolt';
 import cron from 'cron';
 
-import { getBirthdaysForThisHour } from './lib/birthday.js';
+import { startBirthdayCronjob } from './lib/birthday.js';
 
 const app = new bolt.App({
   signingSecret: process.env.SLACK_SIGNING_SECRET,
@@ -28,14 +28,7 @@ async function pingEli(text) {
   // Start the app
   await app.start(process.env.PORT || 3000);
 
-  console.log('⚡️ Bolt app is running!');
+  console.log('⚡️ SpotBot is running!');
 
-  const EVERY_HOUR_AT_1_MINUTE_PAST = '0 1 * * * *';
-  const birthdayJob = new cron.CronJob(EVERY_HOUR_AT_1_MINUTE_PAST, async function() {
-    const birthdaysThisHour = await getBirthdaysForThisHour(app);
-    birthdaysThisHour.forEach(async u => {
-      pingEli(`Happy birthday to <@${u.id}>!`);
-    });
-  }, null, true);
-  console.log('📅 Birthdays crontab scheduled!');
+  startBirthdayCronjob(app);
 })();
