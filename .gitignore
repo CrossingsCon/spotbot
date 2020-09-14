@@ -142,3 +142,6 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
+
+# JSON store files
+db/*.json
