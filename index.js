@@ -4,9 +4,10 @@ dotenv.config();
 import bolt from '@slack/bolt';
 import cron from 'cron';
 
+import logger from './lib/logger.js';
 import Store from './lib/store.js';
 import { startBirthdayCronjob } from './lib/birthday.js';
-import { startChannelHighlightCronjob } from './lib/channel-highlight.js';
+import { startChannelSpotightCronjob } from './lib/channel-spotlight.js';
 
 const store = new Store();
 
@@ -17,10 +18,10 @@ const app = new bolt.App({
 
 (async () => {
   await app.start(process.env.PORT || 3000);
-  console.log('⚡️ SpotBot is running!');
+  logger.info('⚡️ SpotBot is running!');
 
   startBirthdayCronjob(app);
-  startChannelHighlightCronjob(app, store);
+  startChannelSpotightCronjob(app, store);
 })();
 
 async function pingEli(app, text) {
