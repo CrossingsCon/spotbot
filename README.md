@@ -18,4 +18,13 @@ A friendly and helpful bot for the Crossings Slack!
 2. Assign environment variables in *.env*:
   - your **Bot User OAuth Access Token** goes in `SLACK_BOT_TOKEN`
   - your **Signing Secret** goes in `SLACK_SIGNING_SECRET`
-  - the port you want Spotbot to run on goes in `PORT`
+  - the **port you want Spotbot to run on** (default: 3000) goes in `PORT`
+
+3. If you're running it locally, do the usual Node thing:
+```
+$ npm install
+$ node run start
+```
+
+4. If you're setting it up on a server, register it with systemd:
+Instructions TBD. [Reference this for now.](https://nodesource.com/blog/running-your-node-js-app-with-systemd-part-1/)
