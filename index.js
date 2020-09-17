@@ -1,5 +1,12 @@
+import path from 'path';
+import { fileURLToPath } from 'url';
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
 import dotenv from 'dotenv-safe';
-dotenv.config();
+dotenv.config({
+  path: __dirname + '/.env',
+  example: __dirname + '/.env.example',
+});
 
 import bolt from '@slack/bolt';
 import cron from 'cron';
