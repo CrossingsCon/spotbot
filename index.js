@@ -13,6 +13,7 @@ import cron from 'cron';
 
 import logger from './lib/logger.js';
 import Store from './lib/store.js';
+import NullReceiver from './lib/null-receiver.js';
 import { startBirthdayCronjob } from './lib/birthday.js';
 import { startChannelSpotightCronjob } from './lib/channel-spotlight.js';
 
@@ -21,6 +22,7 @@ const store = new Store();
 const app = new bolt.App({
   signingSecret: process.env.SLACK_SIGNING_SECRET,
   token: process.env.SLACK_BOT_TOKEN,
+  receiver: new NullReceiver(),
 });
 
 (async () => {

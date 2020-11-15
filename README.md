@@ -5,7 +5,7 @@ A friendly and helpful bot for the Crossings Slack!
 ## Features
 
 - Wishes users happy birthday on their birthday
-- Spotlights a new channel every Friday
+- Spotlights a new channel every month
 
 ## Setup
 
@@ -18,7 +18,7 @@ A friendly and helpful bot for the Crossings Slack!
 2. Assign environment variables in *.env*:
   - your **Bot User OAuth Access Token** goes in `SLACK_BOT_TOKEN`
   - your **Signing Secret** goes in `SLACK_SIGNING_SECRET`
-  - the **port you want Spotbot to run on** (default: 3000) goes in `PORT`
+  - ~~the **port you want SpotBot to run on** (default: 3000) goes in `PORT`~~ (SpotBot doesn't need a port because it doesn't respond to any events from Slack.)
 
 3. If you're running it locally, do the usual Node thing:
 ```
