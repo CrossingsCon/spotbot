@@ -11,10 +11,10 @@
   "author": "Eli Morris-Heft (https://github.com/dispatchrabbi/)",
   "license": "UNLICENSED",
   "dependencies": {
-    "@slack/bolt": "^2.3.0",
+    "@slack/bolt": "^2.7.0",
     "cron": "^1.8.2",
     "dotenv-safe": "^8.2.0",
-    "moment-timezone": "^0.5.31",
-    "winston": "^3.3.3"
+    "moment-timezone": "^0.5.34",
+    "winston": "^3.6.0"
   }
 }

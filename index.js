@@ -8,16 +8,18 @@ dotenv.config({
   example: __dirname + '/.env.example',
 });
 
-import bolt from '@slack/bolt';
-import cron from 'cron';
+import { logger, setLogLevel } from './lib/logger.js';
+setLogLevel(process.env.LOG_LEVEL);
 
-import logger from './lib/logger.js';
 import Store from './lib/store.js';
+const store = new Store();
+
+
+import bolt from '@slack/bolt';
 import NullReceiver from './lib/null-receiver.js';
 import { startBirthdayCronjob } from './lib/birthday.js';
-import { startChannelSpotightCronjob } from './lib/channel-spotlight.js';
+import { startChannelSpotlightCronjob } from './lib/channel-spotlight.js';
 
-const store = new Store();
 
 const app = new bolt.App({
   signingSecret: process.env.SLACK_SIGNING_SECRET,
@@ -30,7 +32,7 @@ const app = new bolt.App({
   logger.info('⚡️ SpotBot is running!');
 
   startBirthdayCronjob(app);
-  startChannelSpotightCronjob(app, store);
+  startChannelSpotlightCronjob(app, store);
 })();
 
 async function pingEli(app, text) {
