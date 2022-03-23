@@ -30,6 +30,7 @@ const app = new bolt.App({
 (async () => {
   await app.start(process.env.PORT || 3000);
   logger.info('⚡️ SpotBot is running!');
+  await pingEli(app, 'SpotBot is running!');
 
   startBirthdayCronjob(app);
   startChannelSpotlightCronjob(app, store);
