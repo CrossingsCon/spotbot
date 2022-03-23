@@ -1,6 +1,6 @@
 {
   "name": "spotbot",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "A Bot for the Crossings Slack",
   "main": "index.js",
   "scripts": {
