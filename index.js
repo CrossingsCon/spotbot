@@ -10,6 +10,7 @@ dotenv.config({
 
 import { logger, setLogLevel } from './lib/logger.js';
 setLogLevel(process.env.LOG_LEVEL);
+logger.debug('Debug mode on!');
 
 import Store from './lib/store.js';
 const store = new Store();
